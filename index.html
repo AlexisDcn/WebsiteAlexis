@@ -1,28 +1,297 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Website D'Alexis.D</title>
+  <title>Alexis Dechenais | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      margin-top: 100px;
+    :root {
+      --primary: #3498db;
+      --secondary: #2c3e50;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+      --text: #333;
+      --shadow: rgba(0,0,0,0.1);
     }
-    button {
-      padding: 15px 30px;
-      margin: 10px;
-      font-size: 18px;
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      box-shadow: 0 4px 6px var(--shadow);
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0;
+      flex: 1;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .tagline {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+    
+    .btn-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px var(--shadow);
+      border: none;
+      font-size: 1rem;
       cursor: pointer;
+    }
+    
+    .btn i {
+      margin-right: 8px;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 8px var(--shadow);
+      background-color: #2980b9;
+    }
+    
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 4px 10px var(--shadow);
+      margin-bottom: 1.5rem;
+    }
+    
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 350px;
+      box-shadow: 0 10px 15px -3px var(--shadow);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .card i {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    footer {
+      background-color: var(--secondary);
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: auto;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      color: var(--primary);
+    }
+    
+    nav {
+      background-color: var(--secondary);
+      padding: 1rem 0;
+    }
+    
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 2rem;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+    }
+    
+    .typing-effect {
+      overflow: hidden;
+      border-right: 2px solid var(--primary);
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+    }
+    
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: var(--primary) }
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .btn-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      .btn {
+        width: 80%;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to alexisdechenais.fr</h1>
-  <button onclick="location.href='about.html'">About Me</button>
-  <button onclick="location.href='projects.html'">My Projects</button>
-  <button onclick="location.href='https://github.com/AlexisDcn'">GitHub</button>
-  <button onclick="location.href='https://contactflow.chl.connected-health.fr/'">PTUT</button>
+  <header>
+    <img src="/api/placeholder/150/150" alt="Alexis Dechenais" class="profile-pic">
+    <h1>Alexis Dechenais</h1>
+    <p class="tagline">Développeur & Créateur de Solutions Digitales</p>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+      <li><a href="about.html"><i class="fas fa-user"></i> À propos</a></li>
+      <li><a href="projects.html"><i class="fas fa-code"></i> Projets</a></li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+    <h2 class="typing-effect">Bienvenue sur mon portfolio</h2>
+    
+    <p>Passionné par le développement et les nouvelles technologies, je conçois des solutions digitales innovantes. Explorez mon site pour découvrir mes projets et en savoir plus sur mon parcours professionnel.</p>
+    
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-user-circle"></i>
+        <h3>À propos de moi</h3>
+        <p>Découvrez mon parcours, mes compétences et mes centres d'intérêt.</p>
+        <a href="about.html" class="btn"><i class="fas fa-arrow-right"></i> En savoir plus</a>
+      </div>
+      
+      <div class="card">
+        <i class="fas fa-laptop-code"></i>
+        <h3>Mes projets</h3>
+        <p>Explorez les différents projets sur lesquels j'ai travaillé.</p>
+        <a href="projects.html" class="btn"><i class="fas fa-arrow-right"></i> Voir les projets</a>
+      </div>
+      
+      <div class="card">
+        <i class="fab fa-github"></i>
+        <h3>GitHub</h3>
+        <p>Consultez mon code et mes contributions sur GitHub.</p>
+        <a href="https://github.com/AlexisDcn" class="btn"><i class="fas fa-external-link-alt"></i> Voir GitHub</a>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="social-icons">
+      <a href="https://github.com/AlexisDcn" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p>&copy; 2025 Alexis Dechenais. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    // Animation simple pour la page d'accueil
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 300 * (index + 1));
+      });
+    });
+  </script>
 </body>
 </html>
