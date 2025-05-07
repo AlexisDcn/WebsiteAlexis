@@ -74,6 +74,6 @@ function animateElements(selector, delay = 200) {
   
   // Initialiser le thème au chargement de la page
   // Désactivé pour l'instant - décommentez pour activer le mode sombre automatique
-   document.addEventListener('DOMContentLoaded', function() {
-     updateTheme(prefersDarkMode());
-   });
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   updateTheme(prefersDarkMode());
+  // });
