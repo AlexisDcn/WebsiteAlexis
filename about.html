@@ -4,252 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>À Propos | Alexis Dechenais</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/about.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #3498db;
-      --secondary: #2c3e50;
-      --light: #ecf0f1;
-      --dark: #2c3e50;
-      --text: #333;
-      --shadow: rgba(0,0,0,0.1);
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background-color: var(--light);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 1.5rem 0;
-      text-align: center;
-      box-shadow: 0 4px 6px var(--shadow);
-    }
-    
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 0;
-      flex: 1;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: var(--primary);
-    }
-    
-    .back-btn {
-      display: inline-block;
-      margin-bottom: 2rem;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    
-    .back-btn i {
-      margin-right: 5px;
-    }
-    
-    .back-btn:hover {
-      color: var(--secondary);
-    }
-    
-    .about-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3rem;
-      align-items: flex-start;
-    }
-    
-    .about-content {
-      flex: 1;
-      min-width: 300px;
-    }
-    
-    .about-content p {
-      margin-bottom: 1.5rem;
-    }
-    
-    .cv-container {
-      flex: 1;
-      min-width: 300px;
-      background: white;
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 10px 15px -3px var(--shadow);
-    }
-    
-    .cv-wrapper {
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-top: 141.4286%;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px var(--shadow);
-    }
-    
-    .cv-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.8rem 1.5rem;
-      background-color: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px var(--shadow);
-      margin-top: 1rem;
-      border: none;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    
-    .btn i {
-      margin-right: 8px;
-    }
-    
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 8px var(--shadow);
-      background-color: #2980b9;
-    }
-    
-    .skills {
-      margin-top: 2rem;
-    }
-    
-    .skill-category {
-      margin-bottom: 2rem;
-    }
-    
-    .skill-category h3 {
-      margin-bottom: 1rem;
-      color: var(--secondary);
-      font-size: 1.3rem;
-    }
-    
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-    
-    .skill {
-      background: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-weight: 500;
-      box-shadow: 0 2px 4px var(--shadow);
-      display: flex;
-      align-items: center;
-    }
-    
-    .skill i {
-      margin-right: 7px;
-      color: var(--primary);
-    }
-    
-    footer {
-      background-color: var(--secondary);
-      color: white;
-      text-align: center;
-      padding: 1.5rem 0;
-      margin-top: auto;
-    }
-    
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 1rem 0;
-    }
-    
-    .social-icons a {
-      color: white;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-    
-    .social-icons a:hover {
-      color: var(--primary);
-    }
-    
-    nav {
-      background-color: var(--secondary);
-      padding: 1rem 0;
-    }
-    
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      gap: 2rem;
-    }
-    
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    
-    nav a:hover {
-      color: var(--primary);
-    }
-    
-    @media (max-width: 992px) {
-      .about-section {
-        flex-direction: column;
-      }
-      .cv-container {
-        margin-top: 2rem;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-      }
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -262,6 +19,7 @@
       <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
       <li><a href="about.html"><i class="fas fa-user"></i> À propos</a></li>
       <li><a href="projects.html"><i class="fas fa-code"></i> Projets</a></li>
+      <li><a href="guides.html"><i class="fas fa-book"></i> Guides</a></li>
     </ul>
   </nav>
   
@@ -327,3 +85,16 @@
           <i class="fas fa-download"></i> Télécharger le CV
         </a>
       </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="social-icons">
+      <a href="https://github.com/AlexisDcn" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p>&copy; 2025 Alexis Dechenais. Tous droits réservés.</p>
+  </footer>
+</body>
+</html>
