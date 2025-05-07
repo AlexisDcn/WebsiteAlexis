@@ -1,0 +1,90 @@
+/* about.css - Styles spécifiques à la page À Propos */
+
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+  
+  .about-content {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .about-content p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .cv-container {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px var(--shadow);
+  }
+  
+  .cv-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 141.4286%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow);
+  }
+  
+  .cv-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  .skills {
+    margin-top: 2rem;
+  }
+  
+  .skill-category {
+    margin-bottom: 2rem;
+  }
+  
+  .skill-category h3 {
+    margin-bottom: 1rem;
+    color: var(--secondary);
+    font-size: 1.3rem;
+  }
+  
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  
+  .skill {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    box-shadow: 0 2px 4px var(--shadow);
+    display: flex;
+    align-items: center;
+  }
+  
+  .skill i {
+    margin-right: 7px;
+    color: var(--primary);
+  }
+  
+  @media (max-width: 992px) {
+    .about-section {
+      flex-direction: column;
+    }
+    
+    .cv-container {
+      margin-top: 2rem;
+    }
+  }
