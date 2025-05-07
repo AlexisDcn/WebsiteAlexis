@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guides | Alexis Dechenais</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #ecf0f1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0;
+      flex: 1;
+    }
+    header {
+      background: linear-gradient(135deg, #3498db, #2c3e50);
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    nav {
+      background-color: #2c3e50;
+      padding: 1rem 0;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 2rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #3498db;
+    }
+    #guide-selector {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 2rem auto;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    #wiki-content {
+      margin-top: 2rem;
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: auto;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #3498db;
+    }
+  </style>
+  
+</head>
+<body>
+  <header>
+    <h1>Guides et Tutoriels</h1>
+    <p>Consultez les guides disponibles</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+      <li><a href="about.html"><i class="fas fa-user"></i> À propos</a></li>
+      <li><a href="projects.html"><i class="fas fa-code"></i> Projets</a></li>
+      <li><a href="guides.html"><i class="fas fa-book"></i> Guides</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Sélectionnez un Guide</h2>
+    <select id="guide-selector">
+      <option value="GUIDE_KUBERNETES_PTUT.md">Guide Kubernetes PTUT</option>
+      <!-- Ajoutez d'autres options pour vos guides ici -->
+    </select>
+    <div id="wiki-content"></div>
+  </div>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://github.com/AlexisDcn" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p>&copy; 2025 Alexis Dechenais. Tous droits réservés.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const guideSelector = document.getElementById('guide-selector');
+      const wikiContent = document.getElementById('wiki-content');
+
+      function loadGuide(filename) {
+        fetch(`/wiki/${filename}`)
+          .then(response => response.text())
+          .then(markdown => {
+            wikiContent.innerHTML = marked(markdown);
+          });
+      }
+
+      // Charger le premier guide par défaut
+      loadGuide(guideSelector.value);
+
+      // Charger un guide lorsque la sélection change
+      guideSelector.addEventListener('change', function() {
+        loadGuide(guideSelector.value);
+      });
+    });
+  </script>
+</body>
+</html>
